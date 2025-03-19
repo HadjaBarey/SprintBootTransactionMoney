@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import com.kadous.gestiondealer.model.OperationTransaction;
 
@@ -21,14 +22,14 @@ public class OperationTransactionDTO {
     private String montant;
     private String numeroTelephone;
     private String infoClient;
-    private Integer typeoperation;
+    private Integer typeOperation;
     private String operateur;
     private Integer supprimer;
     private Integer iddette;
-    private boolean optioncreance;
-    private String scanmessage;  
-    private String numeroindependant;
-    private String idtrans;  
+    private boolean optionCreance;
+    private String scanMessage;  
+    private String numeroIndependant;
+    private String idTrans;  
     private Instant created_at;
     private Instant updated_at;
 
@@ -72,14 +73,14 @@ public class OperationTransactionDTO {
         operationTransaction.setMontant(this.getMontant()); 
         operationTransaction.setNumeroTelephone(this.getNumeroTelephone());
         operationTransaction.setInfoClient(this.getInfoClient());
-        operationTransaction.setTypeoperation(this.getTypeoperation()); 
+        operationTransaction.setTypeoperation(this.getTypeOperation()); 
         operationTransaction.setOperateur(this.getOperateur()); 
         operationTransaction.setSupprimer(this.getSupprimer());  
         operationTransaction.setIddette(this.getIddette());
-        operationTransaction.setOptioncreance(this.isOptioncreance());
-        operationTransaction.setScanmessage(this.getScanmessage());
-        operationTransaction.setNumeroindependant(this.getNumeroindependant()); 
-        operationTransaction.setIdtrans(this.getIdtrans()); 
+        operationTransaction.setOptioncreance(this.isOptionCreance());
+        operationTransaction.setScanmessage(this.getScanMessage());
+        operationTransaction.setNumeroindependant(this.getNumeroIndependant()); 
+        operationTransaction.setIdtrans(this.getIdTrans()); 
         operationTransaction.setCreated_at(this.getCreated_at());
         operationTransaction.setUpdated_at(this.getUpdated_at());
 

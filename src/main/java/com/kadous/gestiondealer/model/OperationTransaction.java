@@ -79,23 +79,15 @@ public class OperationTransaction {
     @Column(nullable = false,length=191,name = "idtrans")
     private String idtrans;
 
-    // @CreatedDate
-    // @Column(name = "created_at", nullable = false, updatable = false)
+    @CreatedDate
+    @Column(name = "created_at", nullable = false, updatable = false)
     private Instant created_at;
 
-    // @LastModifiedDate
-    // @Column(name = "updated_at")
+    @LastModifiedDate
+    @Column(name = "updated_at")
     private Instant updated_at;
 
 
-    protected void onCreate() {
-        created_at = Instant.now();
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        updated_at = Instant.now();
-    }
     
     
 }

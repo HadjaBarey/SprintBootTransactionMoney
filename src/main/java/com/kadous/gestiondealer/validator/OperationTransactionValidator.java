@@ -15,9 +15,6 @@ public class OperationTransactionValidator {
             return errors;
         }
 
-        if (dto.getIdoperation()== null || dto.getIdoperation().equals("")) {
-            errors.add("Veuillez renseigner le numéro de téléphone");
-        }
 
         if (dto.getNumeroTelephone()== null || dto.getNumeroTelephone().equals("")) {
             errors.add("Veuillez renseigner le numéro de téléphone");
@@ -26,14 +23,14 @@ public class OperationTransactionValidator {
             errors.add("Veuillez renseigner les information du client");
         }
         
-        if (dto.getTypeoperation() == null || dto.getTypeoperation().equals("")) {
+        if (dto.getTypeOperation() == null || dto.getTypeOperation().equals("")) {
             errors.add("Veuillez renseigner le type de l'opération");
         }
         if (dto.getOperateur() == null || dto.getOperateur().equals("")) {
         errors.add("Veuillez renseigner l'opérateur de l'opération");
         }
 
-        if (dto.getIdtrans() == null || dto.getIdtrans().equals("")) {
+        if (dto.getIdTrans() == null || dto.getIdTrans().equals("")) {
             errors.add("Veuillez renseigner l'Id de la transaction");
         }
         if (dto.getDateoperation() == null || dto.getDateoperation().equals("")) {
