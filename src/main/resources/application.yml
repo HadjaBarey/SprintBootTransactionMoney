@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/bdtransaction?createDatabaseIfNotExist=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: KADOUS
+    password: Kadous2019
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database: MYSQL
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+      # dialect: org.hibernate.dialect.MySQLDialect
+  security:
+    user:
+      name: admin
+      password: test
+
+server:
+  address: 0.0.0.0
+  port: 8081
+
+flickr:
+  apiKey: e6017aef7bebeffc113de04efec554b4
+  apiSecret: a2e10f69ece5c67c
+  appKey: 72157718699655397-a36ae267891db7e7
+  appSecret: 04e870e57e18c55b
+
+application:
+  security:
+    jwt:
+      secret-key: qn7GQWuyiXVEArHShySNxVEgb0GtWBi3s/oL9FvSVvw=
+      expiration: 3600000
+      refresh-token:
+        expiration: 86400000
