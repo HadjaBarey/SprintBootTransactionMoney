@@ -9,6 +9,6 @@ import com.kadous.gestiondealer.model.OperationTransaction;
 
 
 public interface OperationTransactionRepository extends JpaRepository<OperationTransaction, Integer>{
-  //  Optional<OperationTransaction> findByDatejournal(LocalDate datejournal);
+  
 }
 

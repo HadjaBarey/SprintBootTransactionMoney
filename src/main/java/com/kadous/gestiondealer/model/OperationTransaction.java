@@ -87,6 +87,27 @@ public class OperationTransaction {
     @Column(name = "updated_at")
     private Instant updated_at;
 
+    //---Option entreprise recuperation--------------------------------------
+
+    @Column(nullable = false,length=191,name = "numeroTelEntreprise ")
+    private String numeroTelEntreprise ;
+
+
+    // @Column(nullable = false,length=11,name = "idEntreprise")
+    // private Integer idEntreprise;
+
+    // @Column(nullable = false,length=191,name = "nomEntreprise")
+    // private String nomEntreprise;
+
+    // @Column(nullable = false,length=191,name = "directeurEntreprise")
+    // private String directeurEntreprise;
+
+    // @Column(nullable = false,length=191,name = "numeroTelephoneEntreprise ")
+    // private String numeroTelephoneEntreprise ;
+
+    // @Column(nullable = false,length=191,name = "emailEntreprise")
+    // private String emailEntreprise;
+
 
     
     

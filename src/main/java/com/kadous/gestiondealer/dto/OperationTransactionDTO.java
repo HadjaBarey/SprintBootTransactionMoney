@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 
 import com.kadous.gestiondealer.model.OperationTransaction;
 
+import jakarta.persistence.Column;
 import lombok.Builder;
 import lombok.Data;
 
@@ -33,6 +34,17 @@ public class OperationTransactionDTO {
     private Instant created_at;
     private Instant updated_at;
 
+    //------option entreprise-------------------------------------------------------------
+
+      private String  numeroTelEntreprise ;
+
+
+    // private Integer idEntreprise;
+    // private String nomEntreprise;
+    // private String directeurEntreprise;
+    // private String numeroTelephoneEntreprise ;
+    // private String emailEntreprise;
+
 
     public static OperationTransactionDTO fromEntity(OperationTransaction operationTransaction) {
         if (operationTransaction == null) {
@@ -55,8 +67,16 @@ public class OperationTransactionDTO {
             operationTransaction.getNumeroindependant(),
             operationTransaction.getIdtrans(),
             operationTransaction.getCreated_at(),
-            operationTransaction.getUpdated_at()
-            
+            operationTransaction.getUpdated_at(),
+
+   //------option entreprise-------------------------------------------------------------
+            operationTransaction.getNumeroTelEntreprise()
+
+            // operationTransaction.getIdEntreprise(),
+            // operationTransaction.getNomEntreprise(),
+            // operationTransaction.getDirecteurEntreprise(),
+            // operationTransaction.getNumeroTelephoneEntreprise (),
+            // operationTransaction.getEmailEntreprise()
           //.build();
         );
     }
@@ -83,6 +103,15 @@ public class OperationTransactionDTO {
         operationTransaction.setIdtrans(this.getIdTrans()); 
         operationTransaction.setCreated_at(this.getCreated_at());
         operationTransaction.setUpdated_at(this.getUpdated_at());
+         //------option entreprise-------------------------------------------------------------
+
+         operationTransaction.setNumeroTelEntreprise (this.getNumeroTelEntreprise ());
+
+        // operationTransaction.setIdEntreprise(this.getIdEntreprise());
+        // operationTransaction.setNomEntreprise(this.getNomEntreprise()); 
+        // operationTransaction.setDirecteurEntreprise(this.getDirecteurEntreprise()); 
+        // operationTransaction.setNumeroTelephoneEntreprise (this.getNumeroTelephoneEntreprise ());
+        // operationTransaction.setEmailEntreprise(this.getEmailEntreprise());
 
         
         return operationTransaction;

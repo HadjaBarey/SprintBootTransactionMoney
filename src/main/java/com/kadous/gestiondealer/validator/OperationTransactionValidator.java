@@ -30,9 +30,9 @@ public class OperationTransactionValidator {
         errors.add("Veuillez renseigner l'opérateur de l'opération");
         }
 
-        if (dto.getIdTrans() == null || dto.getIdTrans().equals("")) {
-            errors.add("Veuillez renseigner l'Id de la transaction");
-        }
+        // if (dto.getIdTrans() == null || dto.getIdTrans().equals("")) {
+        //     errors.add("Veuillez renseigner l'Id de la transaction");
+        // }
         if (dto.getDateoperation() == null || dto.getDateoperation().equals("")) {
             errors.add("Veuillez renseigner la date de la journée");
         }
