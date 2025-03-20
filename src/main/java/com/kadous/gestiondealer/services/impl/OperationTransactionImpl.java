@@ -31,8 +31,8 @@ public class OperationTransactionImpl implements OperationTransactionService{
 
     @Override
     public OperationTransactionDTO save(OperationTransactionDTO dto) {
-        String output = String.format("ttttttttttt %s", dto);
-        System.out.println(output);
+        // String output = String.format("ttttttttttt %s", dto);
+        // System.out.println(output);
         List<String> errors = OperationTransactionValidator.validate(dto);
         if (!errors.isEmpty()) {
             log.error("L'opération n'est pas valide {}", dto);
