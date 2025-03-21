@@ -1,5 +1,6 @@
 package com.kadous.gestiondealer.services.impl;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -135,6 +136,45 @@ public class OperationTransactionImpl implements OperationTransactionService{
         return OperationTransactionDTO.fromEntity(savedOperationTransaction);
 
     }
+
+
+    // public void SupprimerOpera(String dateOp) {
+    //     if (dateOp == null || dateOp.trim().isEmpty()) {
+    //         log.error("L'ID de l'opération est null");
+    //         throw new IllegalArgumentException("L'ID de l'opération ne peut pas être null");
+    //     }
+    
+    //     try {
+    //         int deletedRows = opTransactionRepository.deleteTransaction(dateOp);
+    //         if (deletedRows == 0) {
+    //             throw new RuntimeException("Aucune opération trouvée pour la date : " + dateOp);
+    //         }
+    //     } catch (Exception e) {
+    //         log.error("Erreur lors de la suppression : ", e);
+    //         throw new RuntimeException("Une erreur est survenue lors de la suppression de l'opération", e);
+    //     }
+    // }
+
+    
+    public void SupprimerOpera(String dateOp) {
+        String Messageer = "";
+
+        if (dateOp == null || dateOp.trim().isEmpty()) {
+            log.error("L'ID de l'opération est null");
+            throw new IllegalArgumentException("L'ID de l'opération ne peut pas être null");
+        }
+
+        try {
+            opTransactionRepository.deleteTransaction(dateOp); // ✅ Appel via instance
+        } catch (Exception e) {
+            if (Messageer.isEmpty()) {
+                throw new RuntimeException("Une erreur est survenue lors de la suppression de l'opération", e);
+            } else {
+                throw new RuntimeException(Messageer);
+            }
+        }
+    }
+
 
     
     

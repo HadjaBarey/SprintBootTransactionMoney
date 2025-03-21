@@ -3,8 +3,11 @@ package com.kadous.gestiondealer.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,6 +15,7 @@ import com.kadous.gestiondealer.controller.api.OperationTransactionApi;
 import com.kadous.gestiondealer.dto.OperationTransactionDTO;
 import com.kadous.gestiondealer.services.OperationTransactionService;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -64,6 +68,26 @@ public class OperationTransactionController implements OperationTransactionApi{
     @Override
     public OperationTransactionDTO update(Integer id, OperationTransactionDTO dto) {
         return operationTransactionService.update(id, dto);
+    }
+
+
+
+    @DeleteMapping("/supprimer/byDate")
+    public ResponseEntity<String> supprimerOpera(@RequestParam("dateOp") String dateOp) {
+        try {
+            operationTransactionService.SupprimerOpera(dateOp);
+            return ResponseEntity.ok("Opération marquée comme supprimée avec succès.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                .body("Erreur lors de la suppression de l'opération.");
+        }
+    }
+
+        
+
+    @Override
+    public void deleteTransaction( String dateOp) {
+        operationTransactionService.SupprimerOpera(dateOp);
     }
 
 

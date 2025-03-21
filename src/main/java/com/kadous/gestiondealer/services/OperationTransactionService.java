@@ -18,5 +18,7 @@ public interface OperationTransactionService {
 
     List<OperationTransactionDTO> saveAll(List<OperationTransactionDTO> dtos);
 
+    void SupprimerOpera(String dateOp);
+
     
 }
