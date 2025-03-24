@@ -13,19 +13,12 @@ public interface OperationTransactionRepository extends JpaRepository<OperationT
 
     @Transactional
     @Modifying
-    @Query(value = "DELETE FROM t_operation_transaction WHERE dateoperation =:dateoperation", nativeQuery = true)
+    @Query(value = "DELETE FROM t_operation_transaction WHERE numero_tel_entreprise =:telEntreprise AND dateoperation =:dateOp", nativeQuery = true)
     void deleteTransaction(
-        @Param("dateoperation") String dateoperation
+    @Param("telEntreprise") String telEntreprise,
+    @Param("dateOp") String dateOp
     );
-
-    // @Transactional
-    // @Modifying
-    // @Query(value = "DELETE FROM t_operation_transaction WHERE STR_TO_DATE(dateoperation, '%d/%m/%Y') = STR_TO_DATE(:dateoperation, '%Y-%m-%d')", nativeQuery = true)
-    // int deleteTransaction(
-    //     @Param("dateoperation") String dateoperation
-    //     );
-
-
+    
 
 }
 

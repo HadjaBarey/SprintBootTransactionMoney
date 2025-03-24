@@ -24,36 +24,7 @@ public class ApiGestionDealerApplication {
 			AuthenticationService service
 	) {
 		return args -> {
-			// var admin = RegisterRequest.builder()
-			// 		.identiteag("Admin1")
-			// 		// .matricule("Admin")
-			// 		// .email("admin@mail.com")
-			// 		.password("password2")
-			// 		.sexe("Masculin")
-			// 		.telephone("70808882")
-			// 		.refcnib("B446626262")
-			// 		.email("oued.kader5@ahoo.fr")
-			// 		.matricule("ADM5")
-			// 		.cloturer(0)
-			// 		.role(ADMIN)
-			// 		.build();
-			// System.out.println("Admin token: " + service.register(admin).getAccessToken());
-
-			// var manager = RegisterRequest.builder()
-			// 		.identiteag("Admin6")
-			// 		// .matricule("Admin")
-			// 		// .email("manager@mail.com")
-			// 		.password("password6")
-			// 		.sexe("Feminin")
-			// 		.telephone("76675866")
-			// 		.refcnib("B8888556")
-			// 		.email("oued.kader6@ahoo.fr")
-			// 		.matricule("MNG6")
-			// 		.cloturer(0)
-			// 		.role(MANAGER)
-			// 		.build();
-			// System.out.println("Manager token: " + service.register(manager).getAccessToken());
-
+			
 		};
 	}
 

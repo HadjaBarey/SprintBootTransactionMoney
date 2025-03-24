@@ -34,8 +34,10 @@ public interface OperationTransactionApi {
     @PutMapping("/update/{idOperationTransaction}")
     OperationTransactionDTO update(@PathVariable("idOperationTransaction") Integer id, @RequestBody OperationTransactionDTO dto);
    
+    
     @DeleteMapping("/supprimer")
     void deleteTransaction(
+        @RequestParam("telEntreprise")String telEntreprise,
         @RequestParam("dateOp") String dateOp);
 
       

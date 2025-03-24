@@ -136,36 +136,17 @@ public class OperationTransactionImpl implements OperationTransactionService{
         return OperationTransactionDTO.fromEntity(savedOperationTransaction);
 
     }
-
-
-    // public void SupprimerOpera(String dateOp) {
-    //     if (dateOp == null || dateOp.trim().isEmpty()) {
-    //         log.error("L'ID de l'opération est null");
-    //         throw new IllegalArgumentException("L'ID de l'opération ne peut pas être null");
-    //     }
     
-    //     try {
-    //         int deletedRows = opTransactionRepository.deleteTransaction(dateOp);
-    //         if (deletedRows == 0) {
-    //             throw new RuntimeException("Aucune opération trouvée pour la date : " + dateOp);
-    //         }
-    //     } catch (Exception e) {
-    //         log.error("Erreur lors de la suppression : ", e);
-    //         throw new RuntimeException("Une erreur est survenue lors de la suppression de l'opération", e);
-    //     }
-    // }
-
-    
-    public void SupprimerOpera(String dateOp) {
+    public void SupprimerOpera(String telEntreprise,String dateOp) {
         String Messageer = "";
 
-        if (dateOp == null || dateOp.trim().isEmpty()) {
+        if ((dateOp == null || dateOp.isEmpty()) && (telEntreprise == null || telEntreprise.isEmpty())){
             log.error("L'ID de l'opération est null");
             throw new IllegalArgumentException("L'ID de l'opération ne peut pas être null");
         }
 
         try {
-            opTransactionRepository.deleteTransaction(dateOp); // ✅ Appel via instance
+            opTransactionRepository.deleteTransaction(telEntreprise,dateOp); // ✅ Appel via instance
         } catch (Exception e) {
             if (Messageer.isEmpty()) {
                 throw new RuntimeException("Une erreur est survenue lors de la suppression de l'opération", e);

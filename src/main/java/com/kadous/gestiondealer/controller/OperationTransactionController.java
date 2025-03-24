@@ -71,11 +71,9 @@ public class OperationTransactionController implements OperationTransactionApi{
     }
 
 
-
-    @DeleteMapping("/supprimer/byDate")
-    public ResponseEntity<String> supprimerOpera(@RequestParam("dateOp") String dateOp) {
+    public ResponseEntity<String> supprimerOpera(String telEntreprise,String dateOp) {
         try {
-            operationTransactionService.SupprimerOpera(dateOp);
+            operationTransactionService.SupprimerOpera(telEntreprise,dateOp);
             return ResponseEntity.ok("Opération marquée comme supprimée avec succès.");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -86,8 +84,8 @@ public class OperationTransactionController implements OperationTransactionApi{
         
 
     @Override
-    public void deleteTransaction( String dateOp) {
-        operationTransactionService.SupprimerOpera(dateOp);
+    public void deleteTransaction(String telEntreprise, String dateOp) {
+        operationTransactionService.SupprimerOpera(telEntreprise,dateOp);
     }
 
 
