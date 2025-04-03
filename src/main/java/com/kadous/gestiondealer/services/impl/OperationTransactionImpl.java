@@ -157,6 +157,16 @@ public class OperationTransactionImpl implements OperationTransactionService{
     }
 
 
+    @Override
+    public List<?> listTransaction(String entrepriseNumero, String dateopera) {
+        if (entrepriseNumero == null || dateopera==null) {
+            log.error("Aucune opération");
+            return null;
+        }
+        return opTransactionRepository.listTransaction(entrepriseNumero,dateopera);
+    }
+
+    
     
     
 

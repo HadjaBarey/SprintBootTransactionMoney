@@ -20,5 +20,5 @@ public interface OperationTransactionService {
 
     void SupprimerOpera(String telEntreprise,String dateOp);
 
-    
+    List<?> listTransaction(String entrepriseNumero, String dateopera);
 }

@@ -3,6 +3,7 @@ package com.kadous.gestiondealer.controller.api;
 import static com.kadous.gestiondealer.utils.Constants.APP_ROOT;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -39,6 +40,25 @@ public interface OperationTransactionApi {
     void deleteTransaction(
         @RequestParam("telEntreprise")String telEntreprise,
         @RequestParam("dateOp") String dateOp);
+
+
+     @GetMapping("/listTransaction")
+        List<?> listTransaction(
+        @RequestParam(value ="entrepriseNumero") String entrepriseNumero,
+        @RequestParam(value ="dateopera") String dateopera);
+
+
+        // @GetMapping("/numeroEntreprise")
+        // public ResponseEntity<Map<String, String>> getNumeroTelEntreprise() {
+        //     Optional<OperationTranslation> operation = operationTranslationRepository.findFirstByOrderByIdAsc();
+        //     if (operation.isPresent()) {
+        //         String numero = operation.get().getNumeroTelEntreprise();
+        //         return ResponseEntity.ok(Map.of("numeroTelEntreprise", numero));
+        //     } else {
+        //         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("message", "Aucune entreprise trouvée"));
+        //     }
+        // }
+        
 
       
 }
