@@ -17,20 +17,28 @@ public interface OperationTransactionRepository extends JpaRepository<OperationT
 
     @Transactional
     @Modifying
-    @Query(value = "DELETE FROM t_operation_transaction WHERE numero_tel_entreprise =:telEntreprise AND dateoperation =:dateOp", nativeQuery = true)
+    @Query(value = "DELETE FROM t_operation_transaction WHERE numero_tel_entreprise =:telEntreprise AND dateoperation =:dateOp AND emailentreprise =:emailEP", nativeQuery = true)
     void deleteTransaction(
         @Param("telEntreprise") String telEntreprise,
-        @Param("dateOp") String dateOp
+        @Param("dateOp") String dateOp,
+        @Param("emailEP") String emailEP
     );
 
 
-    @Query(value = "SELECT * FROM t_operation_transaction WHERE numero_tel_entreprise =:entrepriseNumero  AND dateoperation =:dateopera ;", nativeQuery = true)
+    @Query(value = "SELECT * FROM t_operation_transaction WHERE numero_tel_entreprise =:entrepriseNumero  AND dateoperation =:dateopera AND emailentreprise like :emailEPR;", nativeQuery = true)
     List<Map<String,Object>> listTransaction(
         @Param("entrepriseNumero") String entrepriseNumero,
-        @Param("dateopera") String dateopera
+        @Param("dateopera") String dateopera,
+        @Param("emailEPR") String emailEPR
     );
 
-    
+    @Query(value = "SELECT * FROM t_operation_transaction WHERE numero_telephone =:numerotelephone AND dateoperation >= :datedebut AND dateoperation <= :datefin;", nativeQuery = true)
+    List<Map<String,Object>> listRechercher(
+        @Param("numerotelephone") String numerotelephone,
+        @Param("datedebut") String datedebut,
+        @Param("datefin") String datefin
+
+    );
 
 }
 

@@ -37,13 +37,14 @@ public class OperationTransactionDTO {
     //------option entreprise-------------------------------------------------------------
 
       private String  numeroTelEntreprise ;
+      private String emailentreprise;
 
 
     // private Integer idEntreprise;
     // private String nomEntreprise;
     // private String directeurEntreprise;
     // private String numeroTelephoneEntreprise ;
-    // private String emailEntreprise;
+
 
 
     public static OperationTransactionDTO fromEntity(OperationTransaction operationTransaction) {
@@ -70,13 +71,14 @@ public class OperationTransactionDTO {
             operationTransaction.getUpdated_at(),
 
    //------option entreprise-------------------------------------------------------------
-            operationTransaction.getNumeroTelEntreprise()
+            operationTransaction.getNumeroTelEntreprise(),
+            operationTransaction.getEmailentreprise()
 
             // operationTransaction.getIdEntreprise(),
             // operationTransaction.getNomEntreprise(),
             // operationTransaction.getDirecteurEntreprise(),
             // operationTransaction.getNumeroTelephoneEntreprise (),
-            // operationTransaction.getEmailEntreprise()
+            // 
           //.build();
         );
     }
@@ -106,12 +108,13 @@ public class OperationTransactionDTO {
          //------option entreprise-------------------------------------------------------------
 
          operationTransaction.setNumeroTelEntreprise (this.getNumeroTelEntreprise ());
+         operationTransaction.setEmailentreprise(this.getEmailentreprise());
 
         // operationTransaction.setIdEntreprise(this.getIdEntreprise());
         // operationTransaction.setNomEntreprise(this.getNomEntreprise()); 
         // operationTransaction.setDirecteurEntreprise(this.getDirecteurEntreprise()); 
         // operationTransaction.setNumeroTelephoneEntreprise (this.getNumeroTelephoneEntreprise ());
-        // operationTransaction.setEmailEntreprise(this.getEmailEntreprise());
+        // 
 
         
         return operationTransaction;

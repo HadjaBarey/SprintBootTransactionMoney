@@ -137,16 +137,16 @@ public class OperationTransactionImpl implements OperationTransactionService{
 
     }
     
-    public void SupprimerOpera(String telEntreprise,String dateOp) {
+    public void SupprimerOpera(String telEntreprise,String dateOp,String emailEP) {
         String Messageer = "";
 
-        if ((dateOp == null || dateOp.isEmpty()) && (telEntreprise == null || telEntreprise.isEmpty())){
+        if ((dateOp == null || dateOp.isEmpty()) && (telEntreprise == null || telEntreprise.isEmpty()) && (emailEP == null || emailEP.isEmpty())){
             log.error("L'ID de l'opération est null");
             throw new IllegalArgumentException("L'ID de l'opération ne peut pas être null");
         }
 
         try {
-            opTransactionRepository.deleteTransaction(telEntreprise,dateOp); // ✅ Appel via instance
+            opTransactionRepository.deleteTransaction(telEntreprise,dateOp,emailEP); // ✅ Appel via instance
         } catch (Exception e) {
             if (Messageer.isEmpty()) {
                 throw new RuntimeException("Une erreur est survenue lors de la suppression de l'opération", e);
@@ -158,15 +158,24 @@ public class OperationTransactionImpl implements OperationTransactionService{
 
 
     @Override
-    public List<?> listTransaction(String entrepriseNumero, String dateopera) {
+    public List<?> listTransaction(String entrepriseNumero, String dateopera, String emailEPR) {
         if (entrepriseNumero == null || dateopera==null) {
             log.error("Aucune opération");
             return null;
         }
-        return opTransactionRepository.listTransaction(entrepriseNumero,dateopera);
+        if (emailEPR.trim().equals("")|| emailEPR == null || emailEPR.isEmpty()) { emailEPR = "%%"; }
+        return opTransactionRepository.listTransaction(entrepriseNumero,dateopera,emailEPR);
     }
 
     
+    @Override
+    public List<?> listRechercher(String numerotelephone, String datedebut, String datefin) {
+        if (numerotelephone == null || datedebut==null || datefin==null) {
+            log.error("L'option de recherche est vide");
+            return null;
+        }
+        return opTransactionRepository.listRechercher(numerotelephone,datedebut,datefin);
+    }
     
     
 

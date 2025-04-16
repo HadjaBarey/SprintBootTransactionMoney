@@ -39,27 +39,24 @@ public interface OperationTransactionApi {
     @DeleteMapping("/supprimer")
     void deleteTransaction(
         @RequestParam("telEntreprise")String telEntreprise,
-        @RequestParam("dateOp") String dateOp);
+        @RequestParam("dateOp") String dateOp,
+        @RequestParam("emailEP") String emailEP);
 
 
-     @GetMapping("/listTransaction")
+    @GetMapping("/listTransaction")
         List<?> listTransaction(
         @RequestParam(value ="entrepriseNumero") String entrepriseNumero,
-        @RequestParam(value ="dateopera") String dateopera);
+        @RequestParam(value ="dateopera") String dateopera,
+        @RequestParam(value ="emailEPR") String emailEPR);
 
 
-        // @GetMapping("/numeroEntreprise")
-        // public ResponseEntity<Map<String, String>> getNumeroTelEntreprise() {
-        //     Optional<OperationTranslation> operation = operationTranslationRepository.findFirstByOrderByIdAsc();
-        //     if (operation.isPresent()) {
-        //         String numero = operation.get().getNumeroTelEntreprise();
-        //         return ResponseEntity.ok(Map.of("numeroTelEntreprise", numero));
-        //     } else {
-        //         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("message", "Aucune entreprise trouvée"));
-        //     }
-        // }
-        
-
+       
+    @GetMapping("/listRechercher")
+        List<?> listRechercher(
+        @RequestParam(value ="numerotelephone") String numerotelephone,
+        @RequestParam(value ="datedebut") String datedebut,
+        @RequestParam(value ="datefin") String datefin);
+      
       
 }
 

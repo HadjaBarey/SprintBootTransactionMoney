@@ -92,6 +92,9 @@ public class OperationTransaction {
     @Column(nullable = false,length=191,name = "numeroTelEntreprise ")
     private String numeroTelEntreprise ;
 
+    @Column(nullable = false,length=191,name = "emailentreprise")
+    private String emailentreprise;
+
 
     // @Column(nullable = false,length=11,name = "idEntreprise")
     // private Integer idEntreprise;
@@ -105,8 +108,7 @@ public class OperationTransaction {
     // @Column(nullable = false,length=191,name = "numeroTelephoneEntreprise ")
     // private String numeroTelephoneEntreprise ;
 
-    // @Column(nullable = false,length=191,name = "emailEntreprise")
-    // private String emailEntreprise;
+  
 
 
     

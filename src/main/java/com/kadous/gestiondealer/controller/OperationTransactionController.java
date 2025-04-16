@@ -72,9 +72,9 @@ public class OperationTransactionController implements OperationTransactionApi{
     }
 
 
-    public ResponseEntity<String> supprimerOpera(String telEntreprise,String dateOp) {
+    public ResponseEntity<String> supprimerOpera(String telEntreprise,String dateOp, String emailEP) {
         try {
-            operationTransactionService.SupprimerOpera(telEntreprise,dateOp);
+            operationTransactionService.SupprimerOpera(telEntreprise,dateOp,emailEP);
             return ResponseEntity.ok("Opération marquée comme supprimée avec succès.");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -85,14 +85,19 @@ public class OperationTransactionController implements OperationTransactionApi{
         
 
     @Override
-    public void deleteTransaction(String telEntreprise, String dateOp) {
-        operationTransactionService.SupprimerOpera(telEntreprise,dateOp);
+    public void deleteTransaction(String telEntreprise, String dateOp, String emailEP) {
+        operationTransactionService.SupprimerOpera(telEntreprise,dateOp,emailEP);
     }
 
 
     @Override
-    public List<?> listTransaction(String entrepriseNumero, String dateopera) {
-        return operationTransactionService.listTransaction(entrepriseNumero,dateopera);
+    public List<?> listTransaction(String entrepriseNumero, String dateopera, String emailEPR) {
+        return operationTransactionService.listTransaction(entrepriseNumero,dateopera,emailEPR);
+    }
+
+    @Override
+    public List<?> listRechercher(String numerotelephone, String datedebut, String datefin) {
+        return operationTransactionService.listRechercher(numerotelephone,datedebut,datefin);
     }
 
     

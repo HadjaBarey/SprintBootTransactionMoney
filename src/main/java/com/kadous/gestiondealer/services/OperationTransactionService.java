@@ -18,7 +18,12 @@ public interface OperationTransactionService {
 
     List<OperationTransactionDTO> saveAll(List<OperationTransactionDTO> dtos);
 
-    void SupprimerOpera(String telEntreprise,String dateOp);
+    void SupprimerOpera(String telEntreprise,String dateOp,String emailEP);
 
-    List<?> listTransaction(String entrepriseNumero, String dateopera);
+    List<?> listTransaction(String entrepriseNumero, String dateopera, String emailEPR);
+
+    List<?> listRechercher(String numerotelephone, String datedebut, String datefin);
+
+    
+
 }
