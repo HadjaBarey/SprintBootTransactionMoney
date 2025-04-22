@@ -47,7 +47,8 @@ public interface OperationTransactionApi {
         List<?> listTransaction(
         @RequestParam(value ="entrepriseNumero") String entrepriseNumero,
         @RequestParam(value ="dateopera") String dateopera,
-        @RequestParam(value ="emailEPR") String emailEPR);
+        @RequestParam(value ="emailEPR") String emailEPR,
+        @RequestParam(value ="numalea") String numalea);
 
 
        

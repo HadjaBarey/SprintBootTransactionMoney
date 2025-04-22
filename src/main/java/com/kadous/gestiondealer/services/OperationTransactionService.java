@@ -20,7 +20,7 @@ public interface OperationTransactionService {
 
     void SupprimerOpera(String telEntreprise,String dateOp,String emailEP);
 
-    List<?> listTransaction(String entrepriseNumero, String dateopera, String emailEPR);
+    List<?> listTransaction(String entrepriseNumero, String dateopera, String emailEPR, String numalea);
 
     List<?> listRechercher(String numerotelephone, String datedebut, String datefin);
 

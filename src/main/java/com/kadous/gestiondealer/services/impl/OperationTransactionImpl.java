@@ -32,8 +32,6 @@ public class OperationTransactionImpl implements OperationTransactionService{
 
     @Override
     public OperationTransactionDTO save(OperationTransactionDTO dto) {
-        // String output = String.format("ttttttttttt %s", dto);
-        // System.out.println(output);
         List<String> errors = OperationTransactionValidator.validate(dto);
         if (!errors.isEmpty()) {
             log.error("L'opération n'est pas valide {}", dto);
@@ -158,13 +156,21 @@ public class OperationTransactionImpl implements OperationTransactionService{
 
 
     @Override
-    public List<?> listTransaction(String entrepriseNumero, String dateopera, String emailEPR) {
-        if (entrepriseNumero == null || dateopera==null) {
+    public List<?> listTransaction(String entrepriseNumero, String dateopera, String emailEPR, String numalea) {
+        if (dateopera==null || (numalea == null || numalea.trim().equals(""))) {
             log.error("Aucune opération");
             return null;
         }
-        if (emailEPR.trim().equals("")|| emailEPR == null || emailEPR.isEmpty()) { emailEPR = "%%"; }
-        return opTransactionRepository.listTransaction(entrepriseNumero,dateopera,emailEPR);
+       
+        if ((entrepriseNumero == null || entrepriseNumero.trim().equals("")) || 
+        (emailEPR == null || emailEPR.trim().equals(""))) 
+    
+        { 
+            emailEPR = "%%"; 
+            entrepriseNumero = "%%"; 
+        
+        }
+        return opTransactionRepository.listTransaction(entrepriseNumero,dateopera,emailEPR,numalea);
     }
 
     

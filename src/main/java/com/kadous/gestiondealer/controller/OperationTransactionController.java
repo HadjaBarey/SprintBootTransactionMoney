@@ -91,8 +91,8 @@ public class OperationTransactionController implements OperationTransactionApi{
 
 
     @Override
-    public List<?> listTransaction(String entrepriseNumero, String dateopera, String emailEPR) {
-        return operationTransactionService.listTransaction(entrepriseNumero,dateopera,emailEPR);
+    public List<?> listTransaction(String entrepriseNumero, String dateopera, String emailEPR, String numalea) {
+        return operationTransactionService.listTransaction(entrepriseNumero,dateopera,emailEPR,numalea);
     }
 
     @Override
